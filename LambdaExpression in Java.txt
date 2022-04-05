@@ -1,0 +1,150 @@
+/*Udara Lakshitha Jayasundara*/
+(1)
+//Regular Expression**********
+interface IRestuarant{
+	void orderMeal();
+}
+
+class Customer imlements IRestuarant{
+	public void orderMeal(){
+		System.out.println("Customer orders meal.");
+	}
+}
+
+public class MealApp{
+	public static void main(String[] args){
+		IRestuarant meal= new Customer();
+		meal.orderMeal();
+	}
+}
+
+//Lambda Expression***********
+interface IRestuarant{
+	void orderMeal();
+}
+
+public class MealApp{
+	public static void main(String[] args){
+		IRestuarant meal = ()->{
+			System.out.println("Customer orders meal from MealApp!!");
+		}
+		meal.orderMeal();
+	}
+}
+
+
+(2)
+//Regular Expression************
+interface IRestuarant{
+	void orderMeal(String mainMeal, String additionalMeal);
+}
+
+class Customer imlements IRestuarant{
+	public void orderMeal(String mainMeal, String additionalMeal){
+		System.out.println("Customer Ordered "+mainMeal+" with additional "+additionalMeal+" from MealApp !!");
+	}
+}
+
+public class MealApp{
+	public static void main(String[] args){
+		IRestuarant meal = new Customer();
+		meal.orderMeal("Pizza","Cheeze");
+	}
+}
+
+//Lambda Expression*************
+interface IRestuarant{
+	void orderMeal(String mainMeal, String additionalMeal);
+}
+
+public class mealApp{
+	public static void main(String[] args){
+		IRestuarant meal = (mainMeal,additionalMeal)->{
+			System.out.println("Customer Ordered "+mainMeal+" with additional "+additionalMeal+" from MealApp !!");
+		}
+		meal.orderMeal("Pizza","Cheeze");
+	}
+}
+
+
+(3)
+//Regular Expression************
+interface IPetrol{
+	double calcBill(double leaters, double unitsPerLeaters);
+}
+
+class Fuel imlements IPetrol{
+	public double calcBill(double leaters, double unitsPerLeaters){ 
+		return leaters*unitsPerLeaters;
+	}
+}
+
+public class FuelApp{
+	public static void main(String[] args){
+		IPetrol iPetrol = new Fuel();
+		System.out.println("Bill= Rs: "+iPetrol.calcBill(10.5,260.75));
+	}
+}
+
+//Lambda Expression*************
+interface IPetrol{
+	double calcBill(double leaters, double unitsPerLeaters);
+}
+
+public class lambdaApp{
+	public static void main(String[] args){
+		IPetrol iPetrol = (leaters,unitsPerLeaters)-> leaters*unitsPerLeaters;
+		System.out.println("Bill= Rs: "+iPetrol.calcBill(10.5,260.75));
+	}
+}
+
+
+(4)
+//Regular Expression************
+interface ICalculateService{
+	public int calculateTotal(List<Integer> listOfMarks);
+}
+
+public class Exam implements ICalculateService{
+	public int calculateTotal(List<Integer> listOfMarks){
+		int total 0;
+		for(Integer mark : listOfMarks){
+			total=total+mark;
+		}
+		return total;
+	}
+
+	public static void main(String[] args){
+		Exam midExam = new Exam();
+		ArrayList<Integer> listOfMarks = new ArrayList<Integer>();
+		listOfMarks.add(80);
+		listOfMarks.add(85);
+		listOfMarks.add(90);
+		listOfMarks.add(70);
+		listOfMarks.add(60);
+		
+		int total = midExam.calculateTotal(listOfMarks);
+		System.out.println("Total= "+total);
+	}
+}
+
+//Lambda Expression*************
+interface ICalculateService{
+	public int calculateTotal(List<Integer> listOfMarks);
+}
+
+public class ExamAns{
+	public static void main(String[] args){
+		
+		ArrayList<Integer> listOfMarks = new ArrayList<Integer>();
+		listOfMarks.add(80);
+		listOfMarks.add(85);
+		listOfMarks.add(90);
+		listOfMarks.add(70);
+		listOfMarks.add(60);
+
+		ICalculateService iCalculateService = total -> listOfMarks.stream().mapToInt(Integer::intValue).sum();
+		System.out.println("Total is = " + iCalculateService.calculateTotsl(listOfMarks));
+
+}
+
