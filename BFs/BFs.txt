@@ -1,0 +1,22 @@
+import java.util.*;
+public class BFs {
+	
+	static void traverse(Graph graph) {
+		Queue<Graph> q = new LinkedList<Graph>();
+		
+		q.add(graph);//add data to queue
+		
+		while(!q.isEmpty()) {
+			graph=q.remove();//remove data from queue
+			System.out.println(graph.data + "");
+			
+			if(graph.left != null) {
+				q.add(graph.left);
+			}
+			if(graph.right != null) {
+				q.add(graph.right);
+			}
+		}
+	}
+
+}

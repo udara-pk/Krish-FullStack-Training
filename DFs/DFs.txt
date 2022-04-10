@@ -1,0 +1,10 @@
+public class DFs {
+	static void traverse(Graph graph) {
+		if(graph == null) {
+			return;
+		}
+		System.out.println(graph.data);
+		traverse(graph.left);
+		traverse(graph.right);
+	}
+}

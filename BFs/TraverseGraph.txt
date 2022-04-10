@@ -1,0 +1,28 @@
+public class TraverseGraph {
+
+	public static void main(String[] args) {
+		try {
+			Graph graph=sample_graph();
+			BFs.traverse(graph);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	//Create Graph
+	private static Graph sample_graph() {
+		Graph root=new Graph("A",
+				new Graph("C",
+						new Graph ("G"),
+						new Graph("E",null,
+								new Graph("F"))),						
+				new Graph("B",
+						new Graph("D"),null));
+		
+		return root;
+	}
+}	
+
+

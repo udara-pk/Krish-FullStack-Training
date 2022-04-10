@@ -1,0 +1,33 @@
+public class TraverseGraph {
+
+	public static void main(String[] args) {
+		try {
+			Graph graph=sample_graph();
+			DFs.traverse(graph);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	//Create Graph
+	private static Graph sample_graph() {
+		Graph root=new Graph("0",
+				new Graph("3",
+						new Graph("5",null,
+								new Graph("6",null,
+										new Graph("2",null,
+												new Graph("1")))),
+						new Graph("7",
+								new Graph("4"),null)),
+				null);
+								
+								
+				
+		
+		return root;
+	}
+}	
+
+

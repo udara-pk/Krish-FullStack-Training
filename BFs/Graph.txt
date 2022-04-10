@@ -1,0 +1,17 @@
+public class Graph {
+	Graph left;
+	Graph right;
+	String data;
+	
+	//Create constructor
+	public Graph(String data) {
+		this.data=data;
+	}
+	
+	//Create constructor for graph creation
+	public Graph(String data,Graph right,Graph left) {
+		this.data=data;
+		this.left=left;
+		this.right=right;
+	}
+}
