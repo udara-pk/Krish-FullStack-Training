@@ -36,8 +36,10 @@ public class PalindromeList {
             Link nextHead = palindromeChecker(step.next);
             if (nextHead.value.equals(step.value)) {
                 if (nextHead.value.equals(head.value)) {
-                    System.out.println("This Linked List is a Palindrome");
-                }
+                    System.out.println("This is a Palindrome");
+                }else{
+					System.out.println("This is not a Palindrome");
+				}	
                 return nextHead.next;
             }
         }
