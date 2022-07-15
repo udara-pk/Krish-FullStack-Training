@@ -13,7 +13,11 @@ public class MainList {
         reverseList.addNode("B");
         reverseList.addNode("A");
 
+		System.out.println("Original Linked list");
         reverseList.printLinkedList();
+		System.out.println("Reversed Linked list");
+		reversedList = reverseList.reverseList();
+		reversedList.printLinkedList();
 
     }
 }
