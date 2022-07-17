@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;MainSingleton&apos; to &apos;MainBidding&apos;&#x0D;&#x0A;- Original project: &apos;Singleton&apos;&#x0D;&#x0A;- Original element: &apos;MainSingleton&apos;&#x0D;&#x0A;- Renamed element: &apos;MainBidding&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MainSingleton&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{MainSingleton.java[MainSingleton" matchStrategy="1" name="MainBidding" qualified="false" references="true" similarDeclarations="false" stamp="1658045714430" textual="false" version="1.0"/>
+</session>
