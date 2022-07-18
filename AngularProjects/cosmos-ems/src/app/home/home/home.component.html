@@ -1,0 +1,24 @@
+<div id="container">
+    <div class="d-flex vh-100 justify-content-center">
+        <div class="row align-self-center">
+            <div class="card mr-5" style="width:400px">
+                <img class="card-img-top mt-5 icon" src="/assets/emp-list.png" alt="Card image">
+                <div class="card-body text-center">
+                    <h4 class="card-title">List All Employees</h4>
+                    <p class="card-text">List All Employees who are available in the system</p>
+                    
+                    <!--<a class="btn btn-primary" (click)="loadEmployees()" >List All</a>-->
+                    <a class="btn btn-primary" [routerLink]="['/employees',10]" >List All</a>
+                </div>
+            </div>
+            <div class="card" style="width:400px">
+                <img class="card-img-top mt-5  icon" src="/assets/emp.ico" alt="Card image">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Register New Employee</h4>
+                    <p class="card-text">Create new employee record in the system with personal data</p>
+                    <a  class="btn btn-primary" [routerLink]="['/employees',11]">Create</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>
