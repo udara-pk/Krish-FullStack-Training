@@ -1,22 +1,26 @@
 package com.udara.fuelapp.fueldistributionapp.model;
 
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Order")
 public class Order {
 
+    private int orderRefId;
     private String name;
+    @Id
     private int id;
     private String location;
     private int capacity;
     private String fuelType;
-    private String status;
+    private String status="Pending";
 
     public  Order(){
 
     }
-    public Order(String name, int id, String location, int capacity, String fuelType, String status) {
+    public Order(int orderRefId, String name, int id, String location, int capacity, String fuelType, String status) {
+        this.orderRefId=orderRefId;
         this.name = name;
         this.id = id;
         this.location = location;
@@ -27,6 +31,14 @@ public class Order {
 
     public String getName() {
         return name;
+    }
+
+    public int getOrderRefId() {
+        return orderRefId;
+    }
+
+    public void setOrderRefId(int orderRefId) {
+        this.orderRefId = orderRefId;
     }
 
     public void setName(String name) {

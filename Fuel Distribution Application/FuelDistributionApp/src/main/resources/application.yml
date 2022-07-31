@@ -5,6 +5,8 @@ spring:
       host: localhost
       port: 27017
       database: FuelApp_DB
+server:
+  port: 8080
 
 
 
