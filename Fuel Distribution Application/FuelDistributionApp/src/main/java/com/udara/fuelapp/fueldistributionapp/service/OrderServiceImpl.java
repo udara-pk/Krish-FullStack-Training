@@ -37,15 +37,34 @@ public class OrderServiceImpl implements OrderService{
         List<Order> orderEntity = 	orderRepo.findAll();
         return ResponseEntity.status(HttpStatus.OK).body(orderEntity);
     }
-    @Override
+   @Override
     public ResponseEntity<Optional<Order>> getOrder(int id){
         return ResponseEntity.status(HttpStatus.OK).body(orderRepo.findById(id));
     }
+
+    @Override
+    public ResponseEntity<List<Order>> getSpecificOrder(int shedId){
+        return ResponseEntity.status(HttpStatus.OK).body(orderRepo.findByShedId(shedId));
+    }
+
     @Override
     public ResponseEntity<Order> orderReceived(int id){
         Optional<Order> selectedOrder= orderRepo.findById(id);
         if(selectedOrder.isPresent()){
             Order order=selectedOrder.get();
+            order.setStatus("Completed");
+            orderRepo.save(order);
+            return ResponseEntity.status(HttpStatus.OK).body(order);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public ResponseEntity<Order> orderReceived1(int id){
+        Optional<Order> selectedOrder1= orderRepo.findById(id);
+        if(selectedOrder1.isPresent()){
+            Order order=selectedOrder1.get();
             order.setStatus("Completed");
             orderRepo.save(order);
             return ResponseEntity.status(HttpStatus.OK).body(order);

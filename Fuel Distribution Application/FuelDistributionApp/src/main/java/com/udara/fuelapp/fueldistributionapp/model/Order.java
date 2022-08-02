@@ -6,11 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Order")
 public class Order {
-
+    @Id
     private int orderRefId;
     private String name;
-    @Id
-    private int id;
+    private int shedId;
     private String location;
     private int capacity;
     private String fuelType;
@@ -19,10 +18,10 @@ public class Order {
     public  Order(){
 
     }
-    public Order(int orderRefId, String name, int id, String location, int capacity, String fuelType, String status) {
+    public Order(int orderRefId, String name, int shedId, String location, int capacity, String fuelType, String status) {
         this.orderRefId=orderRefId;
         this.name = name;
-        this.id = id;
+        this.shedId = shedId;
         this.location = location;
         this.capacity = capacity;
         this.fuelType = fuelType;
@@ -45,12 +44,12 @@ public class Order {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public int getShedId() {
+        return shedId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setShedId(int shedId) {
+        this.shedId = shedId;
     }
 
     public String getLocation() {

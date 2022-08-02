@@ -10,28 +10,41 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @PostMapping("/placeorder")
+    @PostMapping("/getallorders/addnew")
     public ResponseEntity<Order> placeOrder(@RequestBody Order order) {
 
         return orderService.saveOrder(order);
     }
 
-    @GetMapping("/getorder/{id}")
+    @GetMapping("/getorders/{id}")
     public ResponseEntity<Optional<Order>> getOrder(@PathVariable int id){
 
         return orderService.getOrder(id);
     }
 
-    @PutMapping("/orderreceived/{id}")
+    @GetMapping("/getorder/{shedId}")
+    public ResponseEntity<List<Order>> getSpecificOrder(@PathVariable int shedId){
+        return orderService.getSpecificOrder(shedId);
+    }
+
+    //Orders page
+    @PutMapping("/getallorders/orderreceived/{id}")
     public ResponseEntity<Order> orderReceived(@PathVariable int id) {
 
         return orderService.orderReceived(id);
     }
 
+    //specific order page
+    @PutMapping("/getorder/orderreceived/{id}")
+    public ResponseEntity<Order> orderReceived1(@PathVariable int id) {
+
+        return orderService.orderReceived1(id);
+    }
     @GetMapping("/getallorders")
     public ResponseEntity<List<Order>> getAllOrders(){
 
