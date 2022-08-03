@@ -13,4 +13,5 @@ public interface OrderService {
     public ResponseEntity<Order> orderReceived(int id);
     public ResponseEntity<Order> orderReceived1(int id);
     public ResponseEntity<List<Order>> getSpecificOrder(int shedId);
+    public ResponseEntity<Order> orderStatusUpdated(int id, String status);
 }

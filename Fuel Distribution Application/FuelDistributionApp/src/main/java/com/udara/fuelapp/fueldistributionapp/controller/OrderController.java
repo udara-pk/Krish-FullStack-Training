@@ -45,6 +45,14 @@ public class OrderController {
 
         return orderService.orderReceived1(id);
     }
+
+    //Order update with status
+    @PutMapping("/getorder/orderreceived/{id}/{status}")
+    public ResponseEntity<Order> orderStatusUpdated(@PathVariable int id, @PathVariable String status) {
+
+        return orderService.orderStatusUpdated(id,status);
+    }
+
     @GetMapping("/getallorders")
     public ResponseEntity<List<Order>> getAllOrders(){
 

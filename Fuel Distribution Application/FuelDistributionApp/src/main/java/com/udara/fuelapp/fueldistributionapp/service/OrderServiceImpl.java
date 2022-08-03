@@ -1,24 +1,29 @@
 package com.udara.fuelapp.fueldistributionapp.service;
 
+import com.udara.fuelapp.fueldistributionapp.config.KafkaTopicConfig;
 import com.udara.fuelapp.fueldistributionapp.model.Order;
 import com.udara.fuelapp.fueldistributionapp.repository.OrderRepo;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-@Slf4j
+
 @Service
 public class OrderServiceImpl implements OrderService{
 
     @Autowired
     OrderRepo orderRepo;
+
+    @Autowired
+    KafkaTemplate<String, Order> kafkaTemplate;
 
     @Override
     public ResponseEntity<Order> saveOrder(Order order) {
@@ -26,6 +31,7 @@ public class OrderServiceImpl implements OrderService{
         int x  = random.nextInt(2500);
         try {
             order.setOrderRefId(x);
+            kafkaTemplate.send(KafkaTopicConfig.MESSAGE_TOPIC, order);
             orderRepo.save(order);
         }catch(Exception e) {
         }
@@ -72,5 +78,25 @@ public class OrderServiceImpl implements OrderService{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    //Order update with status
+    @Override
+    public ResponseEntity<Order> orderStatusUpdated(int id, String status) {
+
+        Optional<Order> byId = orderRepo.findById(id);
+        if(byId.isPresent()) {
+            Order order = byId.get();
+            order.setStatus(status);
+
+            orderRepo.save(order);
+
+            return ResponseEntity.status(HttpStatus.OK).body(order);
+
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 
 }
