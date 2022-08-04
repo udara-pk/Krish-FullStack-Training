@@ -7,7 +7,7 @@ export class Order {
   constructor(
     public orderRefId: number,
     public name: string,
-    public id: number,
+    public shedId: number,
     public location: string,
     public capacity: number,
     public fuelType: string,
@@ -37,7 +37,7 @@ export class OrderComponent implements OnInit {
       {
         orderRefId:[''],
         name: [''],
-        id: [''],
+        shedId: [''],
         location: [''],
         capacity: [''],
         fuelType: [''],
@@ -91,7 +91,7 @@ export class OrderComponent implements OnInit {
 
 
     document.getElementById('sname')?.setAttribute('value', order.name);
-    document.getElementById('sid')?.setAttribute('value', order.id.toString())
+    document.getElementById('sid')?.setAttribute('value', order.shedId.toString())
     document.getElementById('slocation')?.setAttribute('value', order.location);
     document.getElementById('sfuelType')?.setAttribute('value', order.fuelType);
     document.getElementById('scapacity')?.setAttribute('value', order.capacity.toString());
@@ -109,7 +109,7 @@ export class OrderComponent implements OnInit {
 
      orderRefId: order.orderRefId,
      name: order.name,
-     id: order.id,
+     id: order.shedId,
      location: order.location,
      capacity: order.capacity,
      fuelType: order.fuelType,

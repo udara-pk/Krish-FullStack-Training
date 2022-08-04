@@ -20,7 +20,7 @@
       <tr *ngFor="let order of orders">
         <td><span>{{order.orderRefId}}</span></td>
         <td><span>{{order.name}}</span></td>
-        <td><span>{{order.id}}</span></td>
+        <td><span>{{order.shedId}}</span></td>
         <td><span>{{order.location}}</span></td>
         <td><span>{{order.capacity}}</span></td>
         <td><span>{{order.fuelType}}</span></td>
@@ -54,7 +54,7 @@
         <div class="form-group">
             <label for="id">Fuel Station Id</label>
             <div class="input-group">
-              <input name="id" id="id" class="form-control" ngModel>
+              <input name="shedId" id="shedId" class="form-control" ngModel>
             </div>
         </div>
         <div class="form-group">
@@ -65,15 +65,27 @@
         </div>
         <div class="form-group">
             <label for="capacity">Capacity</label>
-            <div class="input-group">
-              <input name="capacity" id="capacity" class="form-control" ngModel>
-            </div>
+          <div class="input-group">
+            <select class="form-select" name="capacity" id="capacity" ngModel>
+              <option selected>Select</option>
+              <option value="2000" >2000</option>
+              <option value="3000" >3000</option>
+              <option value="5000">5000</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
             <label for="fuelType">Fuel Type</label>
             <div class="input-group">
-              <input name="fuelType" id="fuelType" class="form-control" ngModel>
+              <select class="form-select" name="fuelType" id="fuelType" ngModel>
+                <option selected>Select</option>
+                <option value="Octane92" >Octane92</option>
+                <option value="Octane95" >Octane95</option>
+                <option value="Diesel">Diesel</option>
+                <option value="SuperDiesel">SuperDiesel</option>
+              </select>
             </div>
+
         </div>
         <div class="border text-center">
             <button data-dismiss="modal" class="btn btn-info">Submit</button>
@@ -166,7 +178,7 @@
           </div>
 
           <div class="form-group">
-              <label for="id">Fuel Station Id</label>
+              <label for="shedId">Fuel Station Id</label>
               <div class="input-group">
                 <input formControlName="id" class="form-control" readonly>
               </div>
