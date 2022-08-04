@@ -7,6 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+
 @EnableEurekaClient
 @SpringBootApplication
 public class FueldistributioninventoryApplication {
@@ -21,4 +22,5 @@ public class FueldistributioninventoryApplication {
 
         return new RestTemplate();
     }
+
 }

@@ -19,8 +19,8 @@ public class AvailableServiceImpl implements AvailableService {
     @Autowired
     ReservedService reservedService;
 
-    //@Autowired
-    //RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
 
     @Override
     public ResponseEntity<Available> saveAvailableFuel(Available available) {
@@ -42,7 +42,7 @@ public class AvailableServiceImpl implements AvailableService {
         int availableCapacity = byFuelType.getQty();
         if(availableCapacity>=fuelCapacity){
 
-            //Order newOrder = getOrder(orderRefeId, "Allocated");
+            updateStatus(orderRefeId, "Allocated");
             int newAvailableCapacity  = availableCapacity - fuelCapacity;
             byFuelType.setQty(newAvailableCapacity);
             saveAvailableFuel(byFuelType);
@@ -53,8 +53,8 @@ public class AvailableServiceImpl implements AvailableService {
 
     }
 
-    /*public Order getOrder(int RefId , String status){
-        return 	restTemplate.getForObject("http://order/api/v1/orders/"+RefId+"/"+status, Order.class);
-    }*/
+    public void updateStatus(int RefId , String status){
+        restTemplate.put("http://order/getorder/orderreceived/"+RefId+"/"+status, Order.class);
+    }
 
 }
