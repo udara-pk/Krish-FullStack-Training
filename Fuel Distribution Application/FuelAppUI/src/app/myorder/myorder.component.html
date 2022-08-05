@@ -1,1 +1,170 @@
-<p>myorder works!</p>
+<div class="container">
+  <div class="row">
+    <h2 class="container w-50">My Order List</h2>
+    <div class="col-md myorder">
+      <br>
+      <div class="form-group mt-sm-2">
+
+        <input type="text" class="form-control" placeholder="Enter Shed Id" [(ngModel)]="id">
+        <button type="button" class="btn btn-sm btn-info mt-sm-2" (click)="getSpecificOrder()">
+          <i class="fa fa-search"></i>Search</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>OrderRefId</th>
+      <th>Shed Name</th>
+      <th>Shed Id</th>
+      <th>Location</th>
+      <th>Capacity</th>
+      <th>Fuel Type</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td><span>{{order.orderRefId}}</span></td>
+      <td><span>{{order.name}}</span></td>
+      <td><span>{{order.shedId}}</span></td>
+      <td><span>{{order.location}}</span></td>
+      <td><span>{{order.capacity}}</span></td>
+      <td><span>{{order.fuelType}}</span></td>
+      <td><span>{{order.status}}</span></td>
+      <td>
+        <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, order)">
+          <i class="fa fa-search"></i>Details</button>
+        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, order)">
+          <i class="fa fa-edit"></i>Complete Order</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Order Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label>Fuel Station Name</label>
+        <div class="input-group">
+          <input id="sname" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Station Id</label>
+        <div class="input-group">
+          <input id="sid" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <div class="input-group">
+          <input id="slocation" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Type</label>
+        <div class="input-group">
+          <input id="sfuelType" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Capacity</label>
+        <div class="input-group">
+          <input id="scapacity" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Status</label>
+        <div class="input-group">
+          <input id="status" class="form-control" readonly>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Order Completion</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label>Order RefId</label>
+        <div class="input-group">
+          <input formControlName="orderRefId" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Station Name</label>
+        <div class="input-group">
+          <input formControlName="name" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Station Id</label>
+        <div class="input-group">
+          <input formControlName="shedId" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <div class="input-group">
+          <input formControlName="location" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Type</label>
+        <div class="input-group">
+          <input formControlName="fuelType" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Capacity</label>
+        <div class="input-group">
+          <input formControlName="capacity" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <div class="input-group">
+          <input formControlName="status" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info" (click)="onSave()" >Complete Order</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

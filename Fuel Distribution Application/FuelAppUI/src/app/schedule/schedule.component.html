@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Order RefId</th>
+      <th>Fuel Type</th>
+      <th>Quantity</th>
+      <th>Scheduled Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let schedule of schedules">
+      <td><span>{{schedule.orderRefId}}</span></td>
+      <td><span>{{schedule.fuelType}}</span></td>
+      <td><span>{{schedule.qty}}</span></td>
+      <td><span>{{schedule.scheduleDate| date: 'dd/MM/yyyy'}}</span></td>
+      <td><span>{{schedule.status}}</span></td>
+      <td><button class="btn btn-sm btn-warning">
+        <i class="fa fa-truck"></i>Deliver Order</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

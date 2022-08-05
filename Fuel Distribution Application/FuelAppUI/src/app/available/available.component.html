@@ -1,0 +1,61 @@
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Fuel Id</th>
+      <th>Fuel Type</th>
+      <th>Quantity</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let available of available1">
+      <td><span>{{available.id}}</span></td>
+      <td><span>{{available.fuelType}}</span></td>
+      <td><span>{{available.qty}}</span></td>
+      <td><button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, available)">
+        <i class="fa fa-edit"></i>Update Fuel Quantity</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Fuel Update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label>Fuel Id</label>
+        <div class="input-group">
+          <input formControlName="id" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Type</label>
+        <div class="input-group">
+          <input formControlName="fuelType" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Fuel Quantity</label>
+        <div class="input-group">
+          <input formControlName="qty" class="form-control">
+        </div>
+      </div>
+
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info" (click)="onSave()" >Update Fuel Capacity</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

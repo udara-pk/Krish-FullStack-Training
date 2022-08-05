@@ -9,13 +9,17 @@ import { OrderComponent } from './order/order.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MyorderComponent } from './myorder/myorder.component';
+import { AvailableComponent } from './available/available.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     OrderComponent,
-    MyorderComponent
+    MyorderComponent,
+    AvailableComponent,
+    ScheduleComponent
   ],
     imports: [
         BrowserModule,

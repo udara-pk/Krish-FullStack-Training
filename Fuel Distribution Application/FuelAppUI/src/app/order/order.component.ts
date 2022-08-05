@@ -109,7 +109,7 @@ export class OrderComponent implements OnInit {
 
      orderRefId: order.orderRefId,
      name: order.name,
-     id: order.shedId,
+     shedId: order.shedId,
      location: order.location,
      capacity: order.capacity,
      fuelType: order.fuelType,
