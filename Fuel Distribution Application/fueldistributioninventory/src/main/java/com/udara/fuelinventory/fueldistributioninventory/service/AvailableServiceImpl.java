@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class AvailableServiceImpl implements AvailableService {
@@ -55,6 +58,16 @@ public class AvailableServiceImpl implements AvailableService {
 
     public void updateStatus(int RefId , String status){
         restTemplate.put("http://order/getorder/orderreceived/"+RefId+"/"+status, Order.class);
+    }
+
+    @Override
+    public void updateAvailableFuel(Available available){
+       availableRepo.save(available);
+    }
+
+    @Override
+    public List<Available> getAvailable(){
+        return availableRepo.findAll();
     }
 
 }
