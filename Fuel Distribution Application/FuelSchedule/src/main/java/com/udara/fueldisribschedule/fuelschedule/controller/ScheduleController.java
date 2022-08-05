@@ -16,12 +16,12 @@ public class ScheduleController {
     ScheduleService scheduleService;
     
 
-    @PostMapping("/order/schedule")
+    @PostMapping("/schedule")
     public ResponseEntity<Schedule> saveSchedule(@RequestBody Schedule schedule){
         return scheduleService.saveSchedule(schedule);
     }
 
-    @GetMapping("/order/allschedule")
+    @GetMapping("/allschedule")
     public ResponseEntity<List<Schedule>> getAllSchedule(){
 
         return scheduleService.getAllSchedule();
