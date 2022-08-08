@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Service
 public class ScheduleDisServiceImpl implements ScheduleDisService{
@@ -25,11 +24,5 @@ public class ScheduleDisServiceImpl implements ScheduleDisService{
         deliverService.getFromSchedule(orderRefId,fuelType,qty);
         scheduleDisRepo.deleteById(orderRefId);
     }
-
-    /*@Override
-    public Schedule getSchedule(int orderRefId, String fuelType, int qty, LocalDate scheduleDate){
-        Schedule byOrderRefId=scheduleDisRepo.findByOrderRefId(orderRefId);
-    }*/
-
 
 }

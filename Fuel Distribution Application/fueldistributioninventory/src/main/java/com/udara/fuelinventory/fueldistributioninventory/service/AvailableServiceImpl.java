@@ -7,20 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
-
 
 @Service
 public class AvailableServiceImpl implements AvailableService {
-
     @Autowired
     AvailableRepo availableRepo;
-
     @Autowired
     ReservedService reservedService;
-
-
 
     @Override
     public ResponseEntity<Available> saveAvailableFuel(Available available) {
@@ -28,15 +22,13 @@ public class AvailableServiceImpl implements AvailableService {
             availableRepo.save(available);
 
         }catch(Exception e) {
-
+            e.printStackTrace();
         }
-
         return ResponseEntity.status(HttpStatus.OK).body(available);
     }
 
     @Override
     public Available getCapacity(String fuelType, int fuelCapacity,int orderRefeId) {
-
 
         Available byFuelType = availableRepo.findByFuelType(fuelType);
         int availableCapacity = byFuelType.getQty();
@@ -47,9 +39,7 @@ public class AvailableServiceImpl implements AvailableService {
             saveAvailableFuel(byFuelType);
             reservedService.getFromAvailable(orderRefeId,fuelType,fuelCapacity);
         }
-
         return byFuelType;
-
     }
 
 

@@ -10,7 +10,6 @@ public class Reserved {
     private int orderRefId;
     private String fuelType;
     private int qty;
-
     public Reserved() {
 
     }
@@ -25,7 +24,6 @@ public class Reserved {
     public int getOrderRefId() {
         return orderRefId;
     }
-
     public void setOrderRefId(int orderRefId) {
         this.orderRefId = orderRefId;
     }
@@ -33,7 +31,6 @@ public class Reserved {
     public String getFuelType() {
         return fuelType;
     }
-
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
@@ -41,9 +38,7 @@ public class Reserved {
     public int getQty() {
         return qty;
     }
-
     public void setQty(int qty) {
         this.qty = qty;
     }
-
 }

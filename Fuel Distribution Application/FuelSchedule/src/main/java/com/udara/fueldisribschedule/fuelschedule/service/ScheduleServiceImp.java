@@ -21,7 +21,7 @@ public class ScheduleServiceImp implements ScheduleService{
         try {
             scheduleRepo.save(schedule);
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return ResponseEntity.status(HttpStatus.OK).body(schedule);
     }

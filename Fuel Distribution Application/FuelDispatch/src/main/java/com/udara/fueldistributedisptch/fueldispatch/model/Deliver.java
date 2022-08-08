@@ -3,16 +3,12 @@ package com.udara.fueldistributedisptch.fueldispatch.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
-
 @Document(collection = "Deliver")
 public class Deliver {
     @Id
     private int orderRefId;
     private String fuelType;
     private int qty;
-    //@JsonFormat(pattern = "yyyy-MM-dd")
-
     private String status;
 
     public Deliver(){

@@ -1,12 +1,9 @@
 package com.udara.fueldisribschedule.fuelschedule.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Document(collection = "Schedule")
 public class Schedule {
@@ -14,7 +11,7 @@ public class Schedule {
     private int orderRefId;
     private String fuelType;
     private int qty;
-    //@JsonFormat(pattern = "yyyy-MM-dd")
+
     private LocalDate scheduleDate;
     private String status;
 

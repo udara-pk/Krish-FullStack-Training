@@ -31,7 +31,5 @@ public class ReservedServiceImpl implements ReservedService{
         reserved.setFuelType(fuelType);
         reserved.setQty(fuelCapacity);
         return saveReserved(reserved);
-
-
     }
 }

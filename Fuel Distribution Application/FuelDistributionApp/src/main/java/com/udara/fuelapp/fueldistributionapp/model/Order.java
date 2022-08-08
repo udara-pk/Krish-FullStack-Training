@@ -1,6 +1,5 @@
 package com.udara.fuelapp.fueldistributionapp.model;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -79,7 +78,6 @@ public class Order {
     public String getStatus() {
         return status;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }

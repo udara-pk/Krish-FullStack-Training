@@ -12,7 +12,6 @@ public class Available {
     private int qty;
 
     public Available() {
-
     }
 
     public Available(int id, String fuelType, int qty) {

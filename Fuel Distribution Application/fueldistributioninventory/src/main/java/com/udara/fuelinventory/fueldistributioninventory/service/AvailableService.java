@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface AvailableService {
     public ResponseEntity<Available> saveAvailableFuel(Available available);
-    //public ResponseEntity<Available> updateAvailableFuel(@PathVariable String fuelType);
     public void updateAvailableFuel(Available available);
     public List<Available> getAvailable();
     public Available getCapacity( String fuelType, int fuelCapacity,int orderRefeId);

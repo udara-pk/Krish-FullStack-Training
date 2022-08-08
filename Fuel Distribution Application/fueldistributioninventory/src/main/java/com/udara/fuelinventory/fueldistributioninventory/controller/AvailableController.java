@@ -12,10 +12,8 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class AvailableController {
-
     @Autowired
     AvailableService availableService;
-
 
     @PostMapping("/saveavailable")
     public ResponseEntity<Available> saveAvailableFuel(@RequestBody Available available) {
@@ -31,6 +29,4 @@ public class AvailableController {
     public List<Available> getAvailable(){
         return availableService.getAvailable();
     }
-
-
 }

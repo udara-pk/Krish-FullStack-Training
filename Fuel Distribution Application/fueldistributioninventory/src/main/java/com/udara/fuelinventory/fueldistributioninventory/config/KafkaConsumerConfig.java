@@ -16,8 +16,6 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +25,6 @@ public class KafkaConsumerConfig {
 
     @Value("localhost:9092")
     private String boostrapServer;
-
 
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String,Order>> factory(
@@ -48,8 +45,4 @@ public class KafkaConsumerConfig {
         return new DefaultKafkaConsumerFactory<>(config,new StringDeserializer(),
                 new JsonDeserializer<>(Order.class));
     }
-
-
-
-
 }

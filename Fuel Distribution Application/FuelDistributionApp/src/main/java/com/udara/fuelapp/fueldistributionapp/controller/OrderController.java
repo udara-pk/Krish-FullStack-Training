@@ -32,13 +32,6 @@ public class OrderController {
         return orderService.getSpecificOrder(shedId);
     }
 
-    //Orders page
-    /*@PutMapping("/getallorders/orderreceived/{id}")
-    public ResponseEntity<Order> orderReceived(@PathVariable int id) {
-
-        return orderService.orderReceived(id);
-    }*/
-
     //specific order page
     @PutMapping("/getorder/orderreceived/{id}")
     public ResponseEntity<Order> orderReceived1(@PathVariable int id) {

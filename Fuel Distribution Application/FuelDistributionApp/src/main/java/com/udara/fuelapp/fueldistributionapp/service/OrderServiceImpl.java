@@ -35,6 +35,7 @@ public class OrderServiceImpl implements OrderService{
             kafkaTemplate.send(KafkaTopicConfig.MESSAGE_TOPIC, order);
             orderRepo.save(order);
         }catch(Exception e) {
+            e.printStackTrace();
         }
         return ResponseEntity.status(HttpStatus.OK).body(order);
     }
@@ -54,18 +55,6 @@ public class OrderServiceImpl implements OrderService{
         return ResponseEntity.status(HttpStatus.OK).body(orderRepo.findByShedId(shedId));
     }
 
-    /*@Override
-    public ResponseEntity<Order> orderReceived(int id){
-        Optional<Order> selectedOrder= orderRepo.findById(id);
-        if(selectedOrder.isPresent()){
-            Order order=selectedOrder.get();
-            order.setStatus("Completed");
-            orderRepo.save(order);
-            return ResponseEntity.status(HttpStatus.OK).body(order);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }*/
 
     @Override
     public ResponseEntity<Order> orderReceived1(int id){
@@ -98,7 +87,4 @@ public class OrderServiceImpl implements OrderService{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
-
 }

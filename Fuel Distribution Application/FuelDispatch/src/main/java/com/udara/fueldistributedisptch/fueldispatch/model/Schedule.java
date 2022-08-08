@@ -12,7 +12,6 @@ public class Schedule {
     private int orderRefId;
     private String fuelType;
     private int qty;
-    //@JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate scheduleDate;
     private String status;
 

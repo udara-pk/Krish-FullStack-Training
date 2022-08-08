@@ -3,7 +3,6 @@ package com.udara.fueldistributedisptch.fueldispatch.service;
 import com.udara.fueldistributedisptch.fueldispatch.model.Deliver;
 import org.springframework.http.ResponseEntity;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface DeliverService {
