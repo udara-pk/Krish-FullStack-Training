@@ -1,16 +1,14 @@
 package com.udara.fuelinventory.fueldistributioninventory.service;
 
 import com.udara.fuelinventory.fueldistributioninventory.model.Available;
-import com.udara.fuelinventory.fueldistributioninventory.model.Order;
 import com.udara.fuelinventory.fueldistributioninventory.repository.AvailableRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -22,8 +20,7 @@ public class AvailableServiceImpl implements AvailableService {
     @Autowired
     ReservedService reservedService;
 
-    @Autowired
-    RestTemplate restTemplate;
+
 
     @Override
     public ResponseEntity<Available> saveAvailableFuel(Available available) {
@@ -45,7 +42,6 @@ public class AvailableServiceImpl implements AvailableService {
         int availableCapacity = byFuelType.getQty();
         if(availableCapacity>=fuelCapacity){
 
-            updateStatus(orderRefeId, "Allocated");
             int newAvailableCapacity  = availableCapacity - fuelCapacity;
             byFuelType.setQty(newAvailableCapacity);
             saveAvailableFuel(byFuelType);
@@ -56,9 +52,7 @@ public class AvailableServiceImpl implements AvailableService {
 
     }
 
-    public void updateStatus(int RefId , String status){
-        restTemplate.put("http://order/getorder/orderreceived/"+RefId+"/"+status, Order.class);
-    }
+
 
     @Override
     public void updateAvailableFuel(Available available){

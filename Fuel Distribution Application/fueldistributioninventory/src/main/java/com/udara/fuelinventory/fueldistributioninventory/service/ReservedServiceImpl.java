@@ -1,5 +1,6 @@
 package com.udara.fuelinventory.fueldistributioninventory.service;
 
+import com.udara.fuelinventory.fueldistributioninventory.config.KafkaTopicAlocation;
 import com.udara.fuelinventory.fueldistributioninventory.config.KafkaTopicConfig;
 import com.udara.fuelinventory.fueldistributioninventory.model.Reserved;
 import com.udara.fuelinventory.fueldistributioninventory.repository.ReservedRepo;
@@ -19,6 +20,7 @@ public class ReservedServiceImpl implements ReservedService{
     @Override
     public Reserved saveReserved(Reserved reserved) {
         kafkaTemplate.send(KafkaTopicConfig.MESSAGE_TOPIC,reserved);
+        kafkaTemplate.send(KafkaTopicAlocation.MESSAGE_TOPIC,reserved);
         return reservedRepo.save(reserved);
     }
 

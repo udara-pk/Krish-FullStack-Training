@@ -5,19 +5,12 @@ spring:
       host: localhost
       port: 27017
       database: FuelApp_DB
-  application:
-    name: inventory
+
 
 server:
   port: 8081
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    instance-id: ${spring.application.name}-${random.int}
-    hostname: localhost
+
 
 
 
