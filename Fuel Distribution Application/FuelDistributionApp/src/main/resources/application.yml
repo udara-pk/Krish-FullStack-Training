@@ -5,21 +5,14 @@ spring:
       host: localhost
       port: 27017
       database: FuelApp_DB
-  application:
-    name: order
+
 server:
   port: 8080
 
   kafka:
     bootstrap-servers: 9092
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    instance-id: ${spring.application.name}-${random.int}
-    hostname: localhost
+
 
 
 

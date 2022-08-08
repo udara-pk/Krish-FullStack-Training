@@ -1,5 +1,6 @@
 package com.udara.fuelapp.fueldistributionapp.service;
 
+import com.udara.fuelapp.fueldistributionapp.config.KafkaCompleteConfig;
 import com.udara.fuelapp.fueldistributionapp.config.KafkaTopicConfig;
 import com.udara.fuelapp.fueldistributionapp.model.Order;
 import com.udara.fuelapp.fueldistributionapp.repository.OrderRepo;
@@ -53,7 +54,7 @@ public class OrderServiceImpl implements OrderService{
         return ResponseEntity.status(HttpStatus.OK).body(orderRepo.findByShedId(shedId));
     }
 
-    @Override
+    /*@Override
     public ResponseEntity<Order> orderReceived(int id){
         Optional<Order> selectedOrder= orderRepo.findById(id);
         if(selectedOrder.isPresent()){
@@ -64,7 +65,7 @@ public class OrderServiceImpl implements OrderService{
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+    }*/
 
     @Override
     public ResponseEntity<Order> orderReceived1(int id){
@@ -72,6 +73,7 @@ public class OrderServiceImpl implements OrderService{
         if(selectedOrder1.isPresent()){
             Order order=selectedOrder1.get();
             order.setStatus("Completed");
+            kafkaTemplate.send(KafkaCompleteConfig.MESSAGE_TOPIC, order);
             orderRepo.save(order);
             return ResponseEntity.status(HttpStatus.OK).body(order);
         }else{

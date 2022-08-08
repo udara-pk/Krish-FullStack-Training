@@ -33,11 +33,11 @@ public class OrderController {
     }
 
     //Orders page
-    @PutMapping("/getallorders/orderreceived/{id}")
+    /*@PutMapping("/getallorders/orderreceived/{id}")
     public ResponseEntity<Order> orderReceived(@PathVariable int id) {
 
         return orderService.orderReceived(id);
-    }
+    }*/
 
     //specific order page
     @PutMapping("/getorder/orderreceived/{id}")
