@@ -5,6 +5,7 @@ import { OrderComponent } from './order/order.component';
 import {MyorderComponent} from "./myorder/myorder.component";
 import {AvailableComponent} from "./available/available.component";
 import {ScheduleComponent} from "./schedule/schedule.component";
+import {DeliverComponent} from "./deliver/deliver.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'myorder', component: MyorderComponent},
   {path: 'available', component: AvailableComponent},
   {path: 'allschedule', component: ScheduleComponent},
+  {path: 'deliver',component:DeliverComponent},
   {path: '', component: HomeComponent}
 ];
 

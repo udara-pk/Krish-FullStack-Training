@@ -1,4 +1,5 @@
 <div class="container">
+  <h3 class="container w-25">SCHEDULED LIST</h3>
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -17,9 +18,27 @@
       <td><span>{{schedule.qty}}</span></td>
       <td><span>{{schedule.scheduleDate| date: 'dd/MM/yyyy'}}</span></td>
       <td><span>{{schedule.status}}</span></td>
-      <td><button class="btn btn-sm btn-warning">
+      <td><button class="btn btn-sm btn-warning" (click)="openDelete(contentDelete, schedule)">
         <i class="fa fa-truck"></i>Deliver Order</button></td>
     </tr>
     </tbody>
   </table>
 </div>
+
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm Dispatch</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2>Are you sure you want to dispatch this order.</h2>
+    <div class="border text-center">
+      <button data-dismiss="modal" class="btn btn-info" (click)="onDelete()">Yes, Dispatch!</button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>

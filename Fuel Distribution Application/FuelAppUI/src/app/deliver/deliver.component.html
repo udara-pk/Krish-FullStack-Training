@@ -1,0 +1,21 @@
+<div class="container">
+  <h3 class="container w-50 text-center">DELIVERED AND COMPLETED ORDERS</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Order RefId</th>
+      <th>Fuel Type</th>
+      <th>Quantity</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let deliver of delivers">
+      <td><span>{{deliver.orderRefId}}</span></td>
+      <td><span>{{deliver.fuelType}}</span></td>
+      <td><span>{{deliver.qty}}</span></td>
+      <td><span>{{deliver.status}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

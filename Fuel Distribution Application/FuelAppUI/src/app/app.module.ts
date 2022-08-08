@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MyorderComponent } from './myorder/myorder.component';
 import { AvailableComponent } from './available/available.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { DeliverComponent } from './deliver/deliver.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
     OrderComponent,
     MyorderComponent,
     AvailableComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    DeliverComponent
   ],
     imports: [
         BrowserModule,
